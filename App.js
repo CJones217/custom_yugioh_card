@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button, Image, ImageBackground } from 'react-native';
+import FlatButton from './button.js';
 //import styles from './styles.js';
 
 //const image = {require("./monster_template.png")};
