@@ -15,22 +15,33 @@ export default function App(){
   return(
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require("./monster_template.png")} >
-      <View style={styles.cardName}>
+            <View style={styles.cardName}>
                 <TextInput style={styles.nameText}
+                maxLength={20}
                 keyboardType="default"
                 placeholder= {card.name}
                 onChangeText={(val => setName(val))}/>
             </View>
             <View style={styles.cardAtk}>
                 <TextInput style={styles.numText}
+                maxLength={4}
                 keyboardType="number-pad"
                 placeholder= {String(card.atk)}
                 onChangeText={(val => setName(val))}/>
             </View>
             <View style={styles.cardDef}>
                 <TextInput style={styles.numText}
+                maxLength={4}
                 keyboardType="number-pad"
                 placeholder= {String(card.def)}
+                onChangeText={(val => setName(val))}/>
+            </View>
+            <View style={styles.cardDesc}>
+                <TextInput style={styles.descripText}
+                maxLength={140}
+                multiline={true}
+                keyboardType="default"
+                placeholder= {card.description}
                 onChangeText={(val => setName(val))}/>
             </View>
       </ImageBackground>
@@ -45,7 +56,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     position:'relative',
-    resizeMode: "cover"
+    resizeMode: "cover",
+    //justifyContent: "center"
   },
   image: {
     position:'absolute',
@@ -68,6 +80,19 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginLeft:30
   },
+  descripText: {
+    color: "black",
+    fontSize: 14,
+    textAlign: "left",
+    textTransform:"capitalize",
+    //backgroundColor: "#000000a0"
+  },
+  cardDesc: {
+    position:"absolute",
+    marginTop:340,
+    marginLeft:28,
+    width:260,
+  },
   numText: {
     color: "black",
     fontSize: 14,
@@ -79,7 +104,7 @@ const styles = StyleSheet.create({
   cardAtk: {
     position:"absolute",
     marginTop:400,
-    marginLeft:190,
+    marginLeft:190
   },
   cardDef: {
     position:"absolute",
