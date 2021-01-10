@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View, Button, Image, ImageBackground, TextInput } from 'react-native';
-import FlatButton from './button.js';
+//import FlatButton from './button';
+//import CardOverlay from './cardOverlay.js';
 //import styles from './styles.js';
 
 //const image = {require("./monster_template.png")};
 //uri: "https://reactjs.org/logo-og.png" 
+
 
 
 export default function App(){
@@ -13,21 +15,24 @@ export default function App(){
   return(
     <View style={styles.container}>
       <ImageBackground style={styles.image} source={require("./monster_template.png")} >
-        <View style={styles.cardName}>
-            <TextInput style={styles.nameText}
-            placeholder= {card.name}
-            onChangeText={(val => setName(val))}/>
-          </View>
-          <View style={styles.cardAtk}>
-            <TextInput style={styles.atkText}
-            placeholder= {String(card.atk)}
-            onChangeText={(val => setName(val))}/>
-          </View>
-          <View style={styles.cardDef}>
-            <TextInput style={styles.defText}
-            placeholder= {String(card.def)}
-            onChangeText={(val => setName(val))}/>
-          </View>
+      <View style={styles.cardName}>
+                <TextInput style={styles.nameText}
+                keyboardType="default"
+                placeholder= {card.name}
+                onChangeText={(val => setName(val))}/>
+            </View>
+            <View style={styles.cardAtk}>
+                <TextInput style={styles.numText}
+                keyboardType="number-pad"
+                placeholder= {String(card.atk)}
+                onChangeText={(val => setName(val))}/>
+            </View>
+            <View style={styles.cardDef}>
+                <TextInput style={styles.numText}
+                keyboardType="number-pad"
+                placeholder= {String(card.def)}
+                onChangeText={(val => setName(val))}/>
+            </View>
       </ImageBackground>
       
     </View>
@@ -63,7 +68,7 @@ const styles = StyleSheet.create({
     marginTop:10,
     marginLeft:30
   },
-  atkText: {
+  numText: {
     color: "black",
     fontSize: 14,
     fontWeight: "bold",
@@ -75,14 +80,6 @@ const styles = StyleSheet.create({
     position:"absolute",
     marginTop:400,
     marginLeft:190,
-  },
-  defText: {
-    color: "black",
-    fontSize: 14,
-    fontWeight: "bold",
-    textAlign: "right",
-    textTransform:"capitalize",
-    //backgroundColor: "#000000a0"
   },
   cardDef: {
     position:"absolute",
